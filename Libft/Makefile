@@ -6,7 +6,7 @@
 #    By: edribeir <edribeir@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/10/20 13:36:22 by edribeir      #+#    #+#                  #
-#    Updated: 2024/03/07 14:06:33 by edribeir      ########   odam.nl          #
+#    Updated: 2024/04/25 14:36:41 by edribeir      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,14 @@ RM = rm -f
 
 AR = ar -rsc
 
-INCLUDE = libft.h
+RED = \033[31m
+PINK = \033[35m
+GREEN = \033[32m
+YELLOW = \033[33m
+BLUE = \033[96m
+CYAN = \033[36m
+BOLD = \033[1m
+RESET = \033[0m
 
 SOURCE = ft_isdigit.c \
 		ft_memset.c \
@@ -78,18 +85,18 @@ all: $(NAME)
 
 $(NAME) : $(OBJECTS)
 	@$(AR) $(NAME) $(OBJECTS)
-	@echo "----> LIBFT DONE 😊 <----"
+	@echo "$(CYAN)$(BOLD)\t LIBFT DONE $(RESET)😊"
 
 %.o:%.c 
 	@$(CC) -c $(CFLAGS) -o $@ $^
 
 clean: 
 	@$(RM) $(OBJECTS)
-	@echo "----> LIBFT Cleansed!✅ <----"
+	@echo "$(GREEN)\t LIBFT Cleansed! $(RESET)✅"
 
 fclean: clean
 	@$(RM) $(NAME)
-	@echo "----> LIBFT ALL Cleansed!✅ <----"
+	@echo "$(GREEN)$(BOLD)\t LIBFT Library Cleansed! $(RESET)✅"
 
 re: fclean all
 
