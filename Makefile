@@ -6,7 +6,7 @@
 #    By: edribeir <edribeir@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/04/24 11:36:55 by edribeir      #+#    #+#                  #
-#    Updated: 2024/04/25 14:36:46 by edribeir      ########   odam.nl          #
+#    Updated: 2024/05/06 16:28:11 by edribeir      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ CYAN = \033[36m
 BOLD = \033[1m
 RESET = \033[0m
 
-SOURCE = pipex.c \
+SOURCE = main.c \
 
 OBJECTS = $(SOURCE:%.c=%.o)
 
