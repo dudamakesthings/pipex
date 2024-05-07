@@ -6,7 +6,7 @@
 #    By: edribeir <edribeir@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/04/24 11:36:55 by edribeir      #+#    #+#                  #
-#    Updated: 2024/05/06 16:28:11 by edribeir      ########   odam.nl          #
+#    Updated: 2024/05/07 13:45:38 by edribeir      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ BOLD = \033[1m
 RESET = \033[0m
 
 SOURCE = main.c \
+		utils.c \
 
 OBJECTS = $(SOURCE:%.c=%.o)
 
