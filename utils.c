@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/07 11:25:58 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/05/07 15:32:38 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/05/08 17:54:37 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*check_path(char *str_cmd, char **envp)
 		i++;
 	}
 	free_split(path);
-	return (str_cmd);
+	return (NULL);
 }
 
 char	*ft_find_path(char **envp)
@@ -60,4 +60,14 @@ void	free_split(char **array)
 		i++;
 	}
 	free(array);
+}
+
+void	error_message_child(char **cmd, char ** cmd2, char *child1)
+{
+	ft_putstr_fd("\033[0;31m Command not found: \033[0m", 2);
+	ft_putendl_fd(cmd[0], 2);
+	free_split(cmd);
+	free_split(cmd2);
+	free(child1);
+	exit(127);
 }
