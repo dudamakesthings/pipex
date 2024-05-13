@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/07 11:25:58 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/05/13 14:28:14 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/05/13 18:47:39 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,36 +62,14 @@ void	free_split(char **array)
 	free(array);
 }
 
-void	free_child(char **cmd, char **cmd2, char *chd1, char *chd2)
+void	free_child(t_data *data)
 {
-	free_split(cmd);
-	free_split(cmd2);
-	if (chd2)
-		free(chd2);
-	free(chd1);
-}
-
-void	print_error(int flag, char **cmd)
-{
-	if (flag == 2)
-	{
-		ft_putstr_fd("\033[0;31m Command not found: \033[0m", 2);
-		ft_putendl_fd(cmd[0], 2);
-		exit(127);
-	}
-	if (flag == 3)
-	{
-		ft_putendl_fd("\tUnexpected error", 2);
-		exit (EXIT_FAILURE);
-	}
-	if (flag == 4)
-	{
-		perror("fork");
-		exit(EXIT_FAILURE);
-	}
-	if (flag == 5)
-	{
-		perror("pipe");
-		exit(EXIT_FAILURE);
-	}
+	if (data->cmd1 != 0)
+		free_split(data->cmd1);
+	if (data->cmd2 != 0)
+		free_split(data->cmd2);
+	if (data->path_cmd2 != 0)
+		free(data->path_cmd2);
+	if (data->path_cmd1 != 0)
+		free(data->path_cmd1);
 }

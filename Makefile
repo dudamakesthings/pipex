@@ -6,7 +6,7 @@
 #    By: edribeir <edribeir@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/04/24 11:36:55 by edribeir      #+#    #+#                  #
-#    Updated: 2024/05/07 13:45:38 by edribeir      ########   odam.nl          #
+#    Updated: 2024/05/13 18:37:50 by edribeir      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ RESET = \033[0m
 
 SOURCE = main.c \
 		utils.c \
+		utils_2.c \
 
 OBJECTS = $(SOURCE:%.c=%.o)
 
