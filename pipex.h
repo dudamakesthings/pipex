@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/25 10:40:20 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/05/13 18:49:51 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/05/14 17:56:28 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,10 @@ typedef struct s_data
 }	t_data;
 
 t_data	create_command_path(char **argv, char **envp, t_data data);
-void	close_fd(int fd[]);
 void	free_split(char **array);
 char	*ft_find_path(char **envp);
-char	*check_path(char *str_cmd, char **envp);
+char	*check_path(char **str_cmd, char **envp);
 void	free_child(t_data *data);
-void	print_error(int flag, char *cmd, t_data data);
+void	exit_print_error(int flag, t_data data);
 
 #endif

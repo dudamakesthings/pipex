@@ -6,13 +6,13 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/07 11:25:58 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/05/13 18:47:39 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/05/14 19:52:49 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-char	*check_path(char *str_cmd, char **envp)
+char	*check_path(char **cmd, char **envp)
 {
 	int		i;
 	char	*execute;
@@ -21,10 +21,15 @@ char	*check_path(char *str_cmd, char **envp)
 
 	i = 0;
 	path = ft_split(ft_find_path(envp), ':');
+	if (path == NULL)
+	{
+		ft_putendl_fd("\033[0;33m\tNot ENV, Unexpected error\033[0m", 2);
+		exit (EXIT_FAILURE);
+	}
 	while (path[i])
 	{
 		part_path = ft_strjoin(path[i], "/");
-		execute = ft_strjoin(part_path, str_cmd);
+		execute = ft_strjoin(part_path, cmd[0]);
 		free(part_path);
 		if (access(execute, F_OK | X_OK) == 0)
 			return (free_split(path), execute);
